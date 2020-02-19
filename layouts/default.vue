@@ -1,14 +1,14 @@
 <template>
   <v-app dark>
     <v-navigation-drawer v-model="drawer" :mini-variant="miniVariant" :clipped="clipped" fixed app>
-      <v-list-item @click="drawer = !drawer" tag="span" to="/" router exact>
+      <v-list-item>
         <v-list-item-icon>
           <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
         </v-list-item-icon>
 
         <v-list-item-content>
           <v-list-item-title>
-            <h1 class="title">{{title}}</h1>
+            <h1 class="title font-weight-bold">{{title}}</h1>
           </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
@@ -26,9 +26,9 @@
       </v-list>
     </v-navigation-drawer>
     <v-app-bar :clipped-left="clipped" fixed app color="primary">
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="hidden-md-and-up" />
 
-      <v-toolbar-title v-text="title" />
+      <v-toolbar-title class="hidden-sm-and-down" v-text="title" />
       <v-spacer />
       <v-text-field flex placeholder="Search posts" color="accent" single-line hide-details>
         <v-icon slot="prepend">mdi-magnify</v-icon>
@@ -39,7 +39,7 @@
       <!-- Horizontal Navbar links -->
       <v-toolbar-items class="hidden-xs-only">
         <v-btn color="primary" :to="item.to" depressed v-for="item in items" :key="item.title">
-          <v-icon class="hidden-sm-and-down" left>{{item.icon}}</v-icon>
+          <v-icon class="hidden-xs-only" left>{{item.icon}}</v-icon>
           {{item.title}}
         </v-btn>
       </v-toolbar-items>
@@ -51,7 +51,7 @@
     </v-content>
 
     <v-footer :fixed="fixed" app>
-      <span>&copy; 2019</span>
+      <span>&copy; {{(new Date()).getFullYear()}}</span>
     </v-footer>
   </v-app>
 </template>
@@ -64,6 +64,11 @@ export default {
       drawer: false,
       fixed: false,
       items: [
+        {
+          icon: "mdi-home",
+          title: "Home",
+          to: "/"
+        },
         {
           icon: "mdi-comment",
           title: "Posts",
