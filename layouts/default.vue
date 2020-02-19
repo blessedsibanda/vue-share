@@ -1,9 +1,9 @@
 <template>
-  <v-app dark>
+  <v-app dark id="vue-share">
     <v-navigation-drawer v-model="drawer" :mini-variant="miniVariant" :clipped="clipped" fixed app>
       <v-list-item>
         <v-list-item-icon>
-          <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+          <v-icon @click.stop="drawer = !drawer">mdi-chevron-left-circle</v-icon>
         </v-list-item-icon>
 
         <v-list-item-content>
@@ -91,3 +91,9 @@ export default {
   }
 };
 </script>
+
+<style>
+#vue-share {
+  background: rgba(21, 1, 26, 0.548);
+}
+</style>
