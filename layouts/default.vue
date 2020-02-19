@@ -1,7 +1,45 @@
 <template>
   <v-app dark>
     <v-app-bar fixed app color="primary">
-      <v-app-bar-nav-icon />
+      <!-- Side navbar -->
+      <v-navigation-drawer app temporary fixed v-model="sideNav">
+        <v-toolbar color="secondary" dark flat>
+          <v-app-bar-nav-icon @click="toggleSideNav" />
+          <nuxt-link to="/" tag="span" style="cursor: pointer">
+            <h1 class="title pl-3">VueShare</h1>
+          </nuxt-link>
+        </v-toolbar>
+
+        <v-divider></v-divider>
+        <!-- Side Navbar links -->
+        <v-list>
+          <v-list-item :to="item.link" v-for="(item,i) in sideNavItems" :key="i">
+            <v-list-tile>
+              <v-list-tile-action>
+                <v-icon>{{item.icon}}</v-icon>
+              </v-list-tile-action>
+              <v-list-tile-content>{{item.title}}</v-list-tile-content>
+            </v-list-tile>
+          </v-list-item>
+        </v-list>
+
+        <v-divider></v-divider>
+        <v-list>
+          <v-subheader>REPORTS</v-subheader>
+          <v-list-item-group color="primary">
+            <v-list-item v-for="(item, i) in sideNavItems" :key="i">
+              <v-list-item-icon>
+                <v-icon v-text="item.icon"></v-icon>
+              </v-list-item-icon>
+              <v-list-item-content>
+                <v-list-item-title v-text="item.title"></v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list-item-group>
+        </v-list>
+      </v-navigation-drawer>
+
+      <v-app-bar-nav-icon @click="toggleSideNav" />
       <v-toolbar-title class="hidden-sm-and-down">
         <nuxt-link to="/" tag="span" style="cursor:pointer">VueShare</nuxt-link>
       </v-toolbar-title>
@@ -46,7 +84,8 @@
 export default {
   data() {
     return {
-      fixed: true
+      fixed: true,
+      sideNav: false
     };
   },
   computed: {
@@ -56,6 +95,18 @@ export default {
         { icon: "mdi-lock-open", title: "Sign In", link: "/signin" },
         { icon: "mdi-account-plus", title: "Sign Up", link: "/signup" }
       ];
+    },
+    sideNavItems() {
+      return [
+        { icon: "mdi-comment", title: "Posts", link: "/posts" },
+        { icon: "mdi-lock-open", title: "Sign In", link: "/signin" },
+        { icon: "mdi-account-plus", title: "Sign Up", link: "/signup" }
+      ];
+    }
+  },
+  methods: {
+    toggleSideNav() {
+      this.sideNav = !this.sideNav;
     }
   }
 };
