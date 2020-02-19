@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <h1 class="title">Posts</h1>
-  </div>
+  <v-container>
+    <h1>Sign In</h1>
+  </v-container>
 </template>
 
 <script>

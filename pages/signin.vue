@@ -1,11 +1,14 @@
 <template>
   <div>
-    <h1 class="title">Sign In</h1>
+    <SignIn />
   </div>
 </template>
 
 <script>
-export default {};
+import SignIn from "@/components/Auth/Signin";
+export default {
+  components: { SignIn }
+};
 </script>
 
 <style>

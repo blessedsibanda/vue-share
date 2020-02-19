@@ -1,13 +1,13 @@
 <template>
   <div>
-    <Signup />
+    <AddPost />
   </div>
 </template>
 
 <script>
-import Signup from "@/components/Auth/Signup";
+import AddPost from "@/components/Posts/AddPost";
 export default {
-  components: { Signup }
+  components: { AddPost }
 };
 </script>
 
