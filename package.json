@@ -12,10 +12,19 @@
     "test": "jest"
   },
   "dependencies": {
-    "nuxt": "^2.0.0",
+    "@nuxtjs/apollo": "^4.0.0-rc19",
     "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/dotenv": "^1.4.0",
     "@nuxtjs/pwa": "^3.0.0-0",
-    "@nuxtjs/dotenv": "^1.4.0"
+    "apollo-boost": "^0.4.7",
+    "apollo-cache-inmemory": "^1.6.5",
+    "apollo-client": "^2.6.8",
+    "apollo-link": "^1.2.13",
+    "apollo-link-http": "^1.5.16",
+    "graphql": "^14.6.0",
+    "graphql-tag": "^2.10.3",
+    "nuxt": "^2.0.0",
+    "vue-apollo": "^3.0.3"
   },
   "devDependencies": {
     "@nuxtjs/vuetify": "^1.0.0",
